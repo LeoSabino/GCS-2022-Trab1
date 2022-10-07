@@ -113,8 +113,7 @@ public class Sistema {
             System.out.println("[2] Lista de Autorizacoes");
             System.out.println("[3] Trocar Usuario");
             System.out.println("[4] Salvar autorizacoes em arquivo");
-            System.out.println("[5] Ver médicos existentes.");
-            System.out.println("[6] Sair");
+            System.out.println("[5] Sair");
             System.out.println("===============================");
             System.out.print("Digite a opcao desejada: ");
             opcao = in.nextInt();
@@ -145,13 +144,10 @@ public class Sistema {
                             System.out.println("Erro na gravação do arquivo");
                         }
 
-                case 5: operador.printaMedicos();
-                break;
-
                 default:
                     System.out.println("Numero invalido");
             }
-        }while (opcao!=6);
+        }while (opcao!=5);
     }
 
     public void menuPaciente(Paciente paciente) {
@@ -196,9 +192,10 @@ public class Sistema {
         do {
             System.out.println("===============================");
             System.out.println("[1] Criar novo Usuario");
-            System.out.println("[2] Trocar Usuario");
+            System.out.println("[2] Lista autorizacoes por Usuario");
             System.out.println("[3] Estatísticas Gerais");
-            System.out.println("[4] Sair");
+            System.out.println("[4] Trocar usuario");
+            System.out.println("[5] Sair");
             System.out.println("===============================");
             System.out.print("Digite a opcao desejada: ");
             opcao = in.nextInt();
@@ -224,8 +221,10 @@ public class Sistema {
                 }
                 break;
                 case 2:
-                    menuUser(); 
-                    break;
+                System.out.println("Digite o nome do usuario que voce quer ver a lista");
+                String name= in.nextLine(); 
+                operador.printaAutoNome(name);
+                break;
                 case 3:
                  System.out.println("Numero de Medicos:");
                     System.out.println(operador.contMedico());
@@ -239,12 +238,13 @@ public class Sistema {
                     System.out.println("=========================");
                     System.out.println("% de autorizacoes realizadas");
                     System.out.println((operador.contaAutorizacoesFeitas()/(operador.contaAutorizacoes()))*100+" %");
-                    System.out.println("Numero Administradores");
-                    System.out.println(operador.contAdm());
+                    break;
+                case 4:
+                    menuUser(); 
                     break;
                 default: break;
             }
-        } while (opcao != 4);
+        } while (opcao != 5);
     }
 
 }
