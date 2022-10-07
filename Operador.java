@@ -90,10 +90,25 @@ public class Operador {
         System.out.println("=====================");
         System.out.println("Insira o dia");
         int dia = in.nextInt();
+        while(dia<=0 || dia >31){
+            System.out.println("Pro favor insira um dia valido");
+            System.out.println("Insira o dia");
+            dia = in.nextInt();
+        }
         System.out.println("insira o mes");
         int mes = in.nextInt();
+        while(mes<=0|| mes >12){
+            System.out.println("Por favor insira um mes valido!");
+            System.out.println("insira o mes");
+            mes = in.nextInt();
+        }
         System.out.println("insira o ano");
         int ano = in.nextInt();
+        while(ano<=2010|| ano >2025){
+            System.out.println("Por favor insira um ano entre 2010-2025!");
+            System.out.println("insira o ano");
+            ano = in.nextInt();
+        }
         System.out.println("=====================");
         System.out.println("Escolha o Exame:");
         System.out.println("------------------");
