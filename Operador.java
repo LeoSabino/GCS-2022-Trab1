@@ -4,13 +4,13 @@ import java.util.Scanner;
 public class Operador {
 
     private ArrayList<Usuario> usuario;
-    private ArrayList<Medico> medico= new ArrayList<>();
-    private ArrayList<Paciente> paciente= new ArrayList<>();
+    private ArrayList<Medico> medico = new ArrayList<>();
+    private ArrayList<Paciente> paciente = new ArrayList<>();
     private ArrayList<Administrador> administrador = new ArrayList<>();
-    private ArrayList<Authorization> authorizationsFeitas= new ArrayList<>();
+    private ArrayList<Authorization> authorizationsFeitas = new ArrayList<>();
     private ArrayList<Authorization> authorizations = new ArrayList<>();
     private Scanner in = new Scanner(System.in);
-    private int id=0;
+    private int id = 0;
 
 
 
@@ -148,14 +148,14 @@ public class Operador {
 
                 for (Authorization authorization : authorizations) {
                     if (authorization.getPatientsName().equals(paciente)) {
-                        System.out.println("Autorizacao:"+ authorization.getId() + "," + authorization.getDia() + "-" +
+                        System.out.println("Autorizacao: "+ authorization.getId() + ", " + authorization.getDia() + "-" +
                                 authorization.getMes() + "-" + authorization.getAno() + ", Paciente: " + authorization.getPatientsName() +
-                                ", Medico:" + authorization.getDoctorsName() + "," + authorization.getExam());
+                                ", Medico: " + authorization.getDoctorsName() + ", " + authorization.getExam());
                     }
                 }
                 break;
             default:
-                System.out.println("numero invalido");
+                System.out.println("Número inválido!");
                 break;
         }
     }
@@ -163,14 +163,14 @@ public class Operador {
     public void printaAutoNome(String nome) {
         for (Authorization authorization : authorizations) {
             if (authorization.getPatientsName().equalsIgnoreCase(nome)) {
-                System.out.println("Autorizacao:" + authorization.getPendente() + "," + authorization.getId() + "," + authorization.getDia() + "-" +
+                System.out.println("Autorizacao: " + authorization.getPendente() + ", " + authorization.getId() + "," + authorization.getDia() + "-" +
                         authorization.getMes() + "-" + authorization.getAno() + ", Paciente: " + authorization.getPatientsName() +
-                        ", Medico:" + authorization.getDoctorsName() + "," + authorization.getExam());
+                        ", Medico: " + authorization.getDoctorsName() + ", " + authorization.getExam());
                 }
             if (authorization.getDoctorsName().equalsIgnoreCase(nome)) {
-                System.out.println("Autorizacao:" + authorization.getPendente() + "," + authorization.getId() + "," + authorization.getDia() + "-" +
+                System.out.println("Autorizacao: " + authorization.getPendente() + ", " + authorization.getId() + ", " + authorization.getDia() + "-" +
                         authorization.getMes() + "-" + authorization.getAno() + ", Paciente: " + authorization.getPatientsName() +
-                        ", Medico:" + authorization.getDoctorsName() + "," + authorization.getExam());
+                        ", Medico: " + authorization.getDoctorsName() + "," + authorization.getExam());
                 }
             }
 
