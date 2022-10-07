@@ -178,7 +178,7 @@ public class Sistema {
                 case 2:
                     operador.printaAutoNome(paciente.getNome());
                 case 3:
-                    menuUser();
+                    operador.printaMedicos();
                 case 4:
                     break;
             }
@@ -235,6 +235,8 @@ public class Sistema {
                     System.out.println("=========================");
                     System.out.println("% de autorizacoes realizadas");
                     System.out.println((operador.contaAutorizacoesFeitas()/(operador.contaAutorizacoes()))*100+" %");
+                    System.out.println("Numero Administradores");
+                    System.out.println(operador.contAdm());
                     break;
                 default: break;
             }
