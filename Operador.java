@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
+
 public class Operador {
 
     private ArrayList<Usuario> usuario;
@@ -31,7 +32,10 @@ public class Operador {
         }
         return true;
     }
-
+    
+    public int contAdm(){
+        return administrador.size();
+    }
 
 
     public Operador() {
