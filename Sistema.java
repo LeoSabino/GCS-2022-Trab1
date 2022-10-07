@@ -112,7 +112,8 @@ public class Sistema {
             System.out.println("[1] Criar Autorizacao");
             System.out.println("[2] Lista de Autorizacoes");
             System.out.println("[3] Trocar Usuario");
-            System.out.println("[4] Sair");
+            System.out.println("[4] Salvar autorizacoes em arquivo");
+            System.out.println("[5] Sair");
             System.out.println("===============================");
             System.out.print("Digite a opcao desejada: ");
             opcao = in.nextInt();
@@ -133,10 +134,20 @@ public class Sistema {
                 case 3:
                     menuUser();
                     break;
+                case 4: System.out.print("Nome do arquivo: ");
+                        String nomeArquivo = in.nextLine();
+                        try{
+                            if(operador.salvaDadosArquivo(nomeArquivo))
+                            System.out.println("Arquivo gravado");
+                        }
+                        catch(Exception e){
+                            System.out.println("Erro na gravação do arquivo");
+                        }
+
                 default:
                     System.out.println("Numero invalido");
             }
-        }while (opcao!=4);
+        }while (opcao!=5);
     }
 
     public void menuPaciente(Paciente paciente) {

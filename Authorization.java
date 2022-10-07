@@ -8,6 +8,12 @@ public class Authorization {
 	private String exam;
 	private String pendente;
 
+	public String geraResumoAutorizacao() {
+		String t;
+		t = (getId() + ";"+ getDia()+"/"+getMes()+"/"+getAno() + getDoctorsName() + ";" + getPatientsName() + ";" + getExam());
+		return t;
+	
+	}
 
 	public Authorization(int id, int dia, int mes, int ano, String doctorsName, String patientsName, String exam) {
 		this.id = id;
