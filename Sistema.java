@@ -171,7 +171,7 @@ public class Sistema {
                 case 4:
                     break;
             }
-        } while (opcao != 3);
+        } while (opcao != 4);
     }
 
 
