@@ -7,7 +7,7 @@ public class Operador {
     private ArrayList<Medico> medico= new ArrayList<>();
     private ArrayList<Paciente> paciente= new ArrayList<>();
     private ArrayList<Administrador> administrador = new ArrayList<>();
-
+    private ArrayList<Authorization> authorizationsFeitas= new ArrayList<>();
     private ArrayList<Authorization> authorizations = new ArrayList<>();
     private Scanner in = new Scanner(System.in);
     private int id=0;
@@ -159,5 +159,33 @@ public class Operador {
                 break;
         }
     }
+
+    public void printaAutoNome(String nome) {
+        for (Authorization authorization : authorizations) {
+            if (authorization.getPatientsName().equalsIgnoreCase(nome)) {
+                System.out.println("Autorizacao:"+ authorization.getPendente()+"," + authorization.getId() + "," + authorization.getDia() + "-" +
+                        authorization.getMes() + "-" + authorization.getAno() + ", Paciente: " + authorization.getPatientsName() +
+                        ", Medico:" + authorization.getDoctorsName() + "," + authorization.getExam());
+            }
+            if (authorization.getDoctorsName().equalsIgnoreCase(nome)){
+                System.out.println("Autorizacao:"+ authorization.getPendente()+"," + authorization.getId() + "," + authorization.getDia() + "-" +
+                        authorization.getMes() + "-" + authorization.getAno() + ", Paciente: " + authorization.getPatientsName() +
+                        ", Medico:" + authorization.getDoctorsName() + "," + authorization.getExam());
+            }
+
+        }
+
+    }
+
+    public void removeAutorizacao(int id){
+        for (Authorization authorization:authorizations){
+            if (authorization.getId()==(id)){
+                authorization.setPendente("Exame Realizado");
+                authorizationsFeitas.add(authorization);
+            }
+        }
+    }
+
+
 
 }

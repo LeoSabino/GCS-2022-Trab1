@@ -138,7 +138,7 @@ public class Sistema {
         int opcao = 0;
         do {
             System.out.println("===============================");
-            System.out.println("[1] ...");
+            System.out.println("[1] Marcar exame como realizado");
             System.out.println("[2] Trocar Usuario");
             System.out.println("[3] Sair");
             System.out.println("===============================");
@@ -147,6 +147,9 @@ public class Sistema {
             in.nextLine();
             switch (opcao) {
                 case 1:
+                    operador.printaAutoNome(paciente.getNome());
+                    System.out.println("Digite o id do exame realizado:");
+                    operador.removeAutorizacao(in.nextInt());
                     break;
                 case 2:
                     menuUser();
@@ -155,6 +158,8 @@ public class Sistema {
             }
         } while (opcao != 3);
     }
+
+
 
     public void menuADM(Administrador administrador){
         int opcao = 0;
