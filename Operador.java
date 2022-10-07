@@ -199,7 +199,20 @@ public class Operador {
             else System.out.println("não tem autorizacao com esse id");
         }
     }
+    public double contaAutorizacoes() {
+        return authorizations.size();
+    }
 
+    public double contaAutorizacoesFeitas() {
+
+        return authorizationsFeitas.size();
+    }
+public int contMedico(){
+        return medico.size();
+    }
+    public int contPaciente(){
+        return paciente.size();
+    }
 
 
 

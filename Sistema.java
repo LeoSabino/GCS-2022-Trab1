@@ -182,7 +182,8 @@ public class Sistema {
             System.out.println("===============================");
             System.out.println("[1] Criar novo Usuario");
             System.out.println("[2] Trocar Usuario");
-            System.out.println("[3] Sair");
+            System.out.println("[3] Estatísticas Gerais");
+            System.out.println("[4] Sair");
             System.out.println("===============================");
             System.out.print("Digite a opcao desejada: ");
             opcao = in.nextInt();
@@ -211,9 +212,22 @@ public class Sistema {
                     menuUser(); 
                     break;
                 case 3:
+                 System.out.println("Numero de Medicos:");
+                    System.out.println(operador.contMedico());
+                    System.out.println("=========================");
+                    System.out.println("Numero de Pacientes");
+                    System.out.println(operador.contPaciente());
+                    System.out.println("=========================");
+                    System.out.println("=========================");
+                    System.out.println("Numero de autorizacoes emitidas");
+                    System.out.println(operador.contaAutorizacoes());
+                    System.out.println("=========================");
+                    System.out.println("% de autorizacoes realizadas");
+                    System.out.println((operador.contaAutorizacoesFeitas()/(operador.contaAutorizacoes()))*100+" %");
                     break;
+                default: break;
             }
-        } while (opcao != 3);
+        } while (opcao != 4);
     }
 
 }
