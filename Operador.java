@@ -163,28 +163,43 @@ public class Operador {
     public void printaAutoNome(String nome) {
         for (Authorization authorization : authorizations) {
             if (authorization.getPatientsName().equalsIgnoreCase(nome)) {
-                System.out.println("Autorizacao:"+ authorization.getPendente()+"," + authorization.getId() + "," + authorization.getDia() + "-" +
+                System.out.println("Autorizacao:" + authorization.getPendente() + "," + authorization.getId() + "," + authorization.getDia() + "-" +
                         authorization.getMes() + "-" + authorization.getAno() + ", Paciente: " + authorization.getPatientsName() +
                         ", Medico:" + authorization.getDoctorsName() + "," + authorization.getExam());
-            }
-            if (authorization.getDoctorsName().equalsIgnoreCase(nome)){
-                System.out.println("Autorizacao:"+ authorization.getPendente()+"," + authorization.getId() + "," + authorization.getDia() + "-" +
+                }
+            if (authorization.getDoctorsName().equalsIgnoreCase(nome)) {
+                System.out.println("Autorizacao:" + authorization.getPendente() + "," + authorization.getId() + "," + authorization.getDia() + "-" +
                         authorization.getMes() + "-" + authorization.getAno() + ", Paciente: " + authorization.getPatientsName() +
                         ", Medico:" + authorization.getDoctorsName() + "," + authorization.getExam());
+                }
             }
 
-        }
 
     }
 
-    public void removeAutorizacao(int id){
+    public void removeAutorizacao(int id, int ano, int mes, int dia){
         for (Authorization authorization:authorizations){
+
             if (authorization.getId()==(id)){
+                if (ano < authorization.getAno()|| ano > authorization.getAno()) {
+                    System.out.println("data invalida, tempo expirado");
+                    return;
+                }
+                else if (mes-authorization.getMes() > 1) {
+                    System.out.println("ja passaram 30 dias");
+                    return;
+                }
+                else if ((dia + authorization.getDia()) - authorization.getDia() > 30 ){
+                    System.out.println("se passaram mais 30 dias");
+                    return;
+                }
                 authorization.setPendente("Exame Realizado");
                 authorizationsFeitas.add(authorization);
             }
+            else System.out.println("não tem autorizacao com esse id");
         }
     }
+
 
 
 
