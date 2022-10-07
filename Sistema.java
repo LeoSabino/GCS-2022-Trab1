@@ -58,4 +58,74 @@ public class Sistema {
         }
     }
 
+    public void menuUser() {
+        int opcao = 0;
+        do {
+            System.out.println("===============================");
+            System.out.println("Escolha seu Usuarios");
+            System.out.println("[1] Escolher Usuario");
+            System.out.println("[2] Ver lista de Usuarios");
+            System.out.println("[3] Sair");
+            System.out.println("===============================");
+            System.out.print("Digite a opcao desejada: ");
+            opcao = in.nextInt();
+            in.nextLine();
+            switch (opcao) {
+                case 1:
+                    System.out.println("Digite seu ID: ");
+                    usuario = operador.escolheUser(in.nextLine());
+                    if (usuario.getTipo().equals("Medico")) {
+                        Medico medico=(Medico) usuario;
+                        menuMedico(medico);
+                    }
+                    if (usuario.getTipo().equals("Paciente")) {
+                        Paciente paciente=(Paciente) usuario;
+                        //menuPaciente(paciente);
+                    }
+                    if (usuario.getTipo().equals("Administrador")) {
+                        Administrador administrador=(Administrador) usuario;
+                        //menuADM(administrador);
+                    }
+                    break;
+                case 2:
+                    operador.listaUser();
+                    break;
+                case 3:
+                    break;
+                default:
+                    System.out.println("Opcao invalida!");
+
+            }
+        } while (opcao != 3);
+    }
+
+    public void menuMedico(Medico medico){
+        int opcao=0;
+        do {
+
+            System.out.println("===============================");
+            System.out.println("[1] Criar Autorizacao");
+            System.out.println("[2] Sair");
+            System.out.println("===============================");
+            System.out.print("Digite a opcao desejada: ");
+            opcao = in.nextInt();
+            in.nextLine();
+            switch (opcao) {
+                case 1:
+                    System.out.println("Crie sua autorizacao");
+                    System.out.println("=====================");
+                    System.out.println("Escolha o Paciente");
+                    operador.printaPaciente();
+                    System.out.println("Digite a ID do paciente:");
+                    Paciente paciente=operador.getPaciente(in.nextLine());
+                    operador.criaAutorizacao(medico,paciente);
+                    break;
+
+                case 2: break;
+
+                default:
+                    System.out.println("Numero invalido");
+            }
+        }while (opcao!=2);
+    }
 }
