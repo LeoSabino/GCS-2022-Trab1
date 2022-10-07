@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
+
 public class Operador {
 
     private ArrayList<Usuario> usuario;
@@ -31,7 +32,10 @@ public class Operador {
         }
         return true;
     }
-
+    
+    public int contAdm(){
+        return administrador.size();
+    }
 
 
     public Operador() {
@@ -216,22 +220,21 @@ public class Operador {
         for (Authorization authorization:authorizations){
 
             if (authorization.getId()==(id)){
-                if ((dia + authorization.getDia()) - authorization.getDia() > 30 ){
-                    System.out.println("se passaram mais 30 dias");
-                    return;
-                }
-                if (mes != authorization.getMes()) {
-                    System.out.println("ja passaram 30 dias");
-                    return;
-                }
-                if (ano != authorization.getAno()) {
-                    System.out.println("data invalida, tempo expirado");
-                    return;
-                }
-                authorization.setPendente("Exame Realizado");
-                authorizationsFeitas.add(authorization);
+                int diasBrutos = ano*365+mes*30+dia;
+                if(diasBrutos-authorization.getDiasBrutos()>30) System.out.println("A data expirou");
+                else if(diasBrutos<authorization.getDIasBrutos()) System.out.println("Data inválida");
             }
             else System.out.println("não tem autorizacao com esse id");
+        }
+    }
+
+    public void printaMedicos(){
+        for (Medico medicos:medico){
+            System.out.println("===================================");
+            System.out.println("Nome: " + medicos.getNome());
+            System.out.println("Tipo: " + medicos.getTipo());
+            System.out.println("ID: " + medicos.getId());
+            System.out.println("===================================");
         }
     }
     public double contaAutorizacoes() {

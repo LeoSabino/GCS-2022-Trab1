@@ -113,7 +113,8 @@ public class Sistema {
             System.out.println("[2] Lista de Autorizacoes");
             System.out.println("[3] Trocar Usuario");
             System.out.println("[4] Salvar autorizacoes em arquivo");
-            System.out.println("[5] Sair");
+            System.out.println("[5] Ver médicos existentes.");
+            System.out.println("[6] Sair");
             System.out.println("===============================");
             System.out.print("Digite a opcao desejada: ");
             opcao = in.nextInt();
@@ -144,10 +145,13 @@ public class Sistema {
                             System.out.println("Erro na gravação do arquivo");
                         }
 
+                case 5: operador.printaMedicos();
+                break;
+
                 default:
                     System.out.println("Numero invalido");
             }
-        }while (opcao!=5);
+        }while (opcao!=6);
     }
 
     public void menuPaciente(Paciente paciente) {
@@ -235,6 +239,8 @@ public class Sistema {
                     System.out.println("=========================");
                     System.out.println("% de autorizacoes realizadas");
                     System.out.println((operador.contaAutorizacoesFeitas()/(operador.contaAutorizacoes()))*100+" %");
+                    System.out.println("Numero Administradores");
+                    System.out.println(operador.contAdm());
                     break;
                 default: break;
             }
