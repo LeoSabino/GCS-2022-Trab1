@@ -242,7 +242,13 @@ public class Sistema {
                 case 4:
                     menuUser(); 
                     break;
-                default: break;
+                case 5:
+                    break;
+
+                default: 
+                    System.out.println("Valor inválido");
+                    break;
+                
             }
         } while (opcao != 5);
     }
