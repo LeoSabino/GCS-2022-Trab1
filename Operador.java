@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Operador {
 
@@ -11,6 +14,23 @@ public class Operador {
     private ArrayList<Authorization> authorizations = new ArrayList<>();
     private Scanner in = new Scanner(System.in);
     private int id = 0;
+
+    public boolean salvaDadosArquivo(String nomeArquivo) {
+        String linha = "";
+        try {
+            FileWriter fw = new FileWriter(nomeArquivo);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (Authorization a : authorizations) {
+                linha = a.geraResumoAutorizacao();
+                bw.write(linha);
+            }
+            bw.close();
+        } catch (IOException e) {
+            System.err.println("Erro: " + e);
+            return false;
+        }
+        return true;
+    }
 
 
 
