@@ -105,7 +105,8 @@ public class Sistema {
 
             System.out.println("===============================");
             System.out.println("[1] Criar Autorizacao");
-            System.out.println("[2] Sair");
+            System.out.println("[2] Listar Autorizacoes");
+            System.out.println("[3] Sair");
             System.out.println("===============================");
             System.out.print("Digite a opcao desejada: ");
             opcao = in.nextInt();
@@ -121,11 +122,13 @@ public class Sistema {
                     operador.criaAutorizacao(medico,paciente);
                     break;
 
-                case 2: break;
+                case 2:
+                    operador.printaAutorizacoes();
+                    break;
 
                 default:
                     System.out.println("Numero invalido");
             }
-        }while (opcao!=2);
+        }while (opcao!=3);
     }
 }

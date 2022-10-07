@@ -121,7 +121,43 @@ public class Operador {
         }
         Authorization authorization = new Authorization(id, ano, mes, dia, medico.getNome(), paciente.getNome(), exame);
         authorizations.add(authorization);
+    }
 
+    public void printaAutorizacoes() {
+        System.out.println("Escolha qual lista que voce deseja:");
+        System.out.println("[1] Filtro Exames");
+        System.out.println("[2] Filtro Paciente");
+        int opcao = 0;
+        opcao = in.nextInt();
+        in.nextLine();
+        switch (opcao) {
+            case 1:
+                System.out.println("Digite o exame:"); //falta colocar por data
+                String exame = in.nextLine();
+                for (Authorization authorization : authorizations) {
+                    if (authorization.getExam().equals(exame)) {
+                        System.out.println("Autorizacao:"+ authorization.getId() + "," + authorization.getDia() + "-" +
+                                authorization.getMes() + "-" + authorization.getAno() + ", Paciente: " + authorization.getPatientsName() +
+                                ", Medico:" + authorization.getDoctorsName() + "," + authorization.getExam());
+                    }
+                }
+                break;
+            case 2:
+                System.out.println("Digite o paciente"); //falta colocar por data
+                String paciente = in.nextLine();
+
+                for (Authorization authorization : authorizations) {
+                    if (authorization.getPatientsName().equals(paciente)) {
+                        System.out.println("Autorizacao:"+ authorization.getId() + "," + authorization.getDia() + "-" +
+                                authorization.getMes() + "-" + authorization.getAno() + ", Paciente: " + authorization.getPatientsName() +
+                                ", Medico:" + authorization.getDoctorsName() + "," + authorization.getExam());
+                    }
+                }
+                break;
+            default:
+                System.out.println("numero invalido");
+                break;
+        }
     }
 
 }
