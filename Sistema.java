@@ -181,36 +181,36 @@ public class Sistema {
         do {
             System.out.println("===============================");
             System.out.println("[1] Criar novo Usuario");
-            System.out.println("[2] Lista autorizacoes por Usuario");
-            System.out.println("[3] Trocar usuario");
-            System.out.println("[4] sair");
+            System.out.println("[2] Trocar Usuario");
+            System.out.println("[3] Sair");
             System.out.println("===============================");
             System.out.print("Digite a opcao desejada: ");
             opcao = in.nextInt();
             in.nextLine();
             switch (opcao) {
                 case 1: System.out.println("Digito o ID do usuario");
-                        String id= in.nextLine();
-                        System.out.println("Digite o Nome do usuario");
-                        String nome= in.nextLine();
-                        System.out.println("Digite o tipo (Medico/Paciente/Administrador");
-                        String tipo= in.nextLine();
-                        if (tipo.equals("Medico")) {
-                        Medico medico = new Medico(id, nome, tipo);
-                        operador.cadastraUsuario(medico);
-                        }
-                        if (tipo.equals("Paciente")) {
-                        Paciente paciente = new Paciente(id, nome, tipo);
-                        operador.cadastraUsuario(paciente);
-                        }
-                        if (tipo.equals("Administrador")) {
-                        Administrador adm = new Administrador(id, nome, tipo);
-                        operador.cadastraUsuario(adm);
-                        }
-                        break;
+                String id= in.nextLine();
+                System.out.println("Digite o Nome do usuario");
+                String nome= in.nextLine();
+                System.out.println("Digite o tipo (Medico/Paciente/Administrador");
+                String tipo= in.nextLine();
+                if (tipo.equals("Medico")) {
+                Medico medico = new Medico(id, nome, tipo);
+                operador.cadastraUsuario(medico);
+                }
+                if (tipo.equals("Paciente")) {
+                Paciente paciente = new Paciente(id, nome, tipo);
+                operador.cadastraUsuario(paciente);
+                }
+                if (tipo.equals("Administrador")) {
+                Administrador adm = new Administrador(id, nome, tipo);
+                operador.cadastraUsuario(adm);
+                }
+                break;
+                case 2:
+                    menuUser(); 
+                    break;
                 case 3:
-                    menuUser();
-                case 4:
                     break;
             }
         } while (opcao != 3);
