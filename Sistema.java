@@ -80,11 +80,11 @@ public class Sistema {
                     }
                     if (usuario.getTipo().equals("Paciente")) {
                         Paciente paciente=(Paciente) usuario;
-                        //menuPaciente(paciente);
+                        menuPaciente(paciente);
                     }
                     if (usuario.getTipo().equals("Administrador")) {
                         Administrador administrador=(Administrador) usuario;
-                        //menuADM(administrador);
+                        menuADM(administrador);
                     }
                     break;
                 case 2:
@@ -105,8 +105,9 @@ public class Sistema {
 
             System.out.println("===============================");
             System.out.println("[1] Criar Autorizacao");
-            System.out.println("[2] Listar Autorizacoes");
-            System.out.println("[3] Sair");
+            System.out.println("[2] Lista de Autorizacoes");
+            System.out.println("[3] Trocar Usuario");
+            System.out.println("[4] Sair");
             System.out.println("===============================");
             System.out.print("Digite a opcao desejada: ");
             opcao = in.nextInt();
@@ -121,14 +122,60 @@ public class Sistema {
                     Paciente paciente=operador.getPaciente(in.nextLine());
                     operador.criaAutorizacao(medico,paciente);
                     break;
-
                 case 2:
                     operador.printaAutorizacoes();
                     break;
-
+                case 3:
+                    menuUser();
+                    break;
                 default:
                     System.out.println("Numero invalido");
             }
-        }while (opcao!=3);
+        }while (opcao!=4);
     }
+
+    public void menuPaciente(Paciente paciente) {
+        int opcao = 0;
+        do {
+            System.out.println("===============================");
+            System.out.println("[1] ...");
+            System.out.println("[2] Trocar Usuario");
+            System.out.println("[3] Sair");
+            System.out.println("===============================");
+            System.out.print("Digite a opcao desejada: ");
+            opcao = in.nextInt();
+            in.nextLine();
+            switch (opcao) {
+                case 1:
+                    break;
+                case 2:
+                    menuUser();
+                case 3:
+                    break;
+            }
+        } while (opcao != 3);
+    }
+
+    public void menuADM(Administrador administrador){
+        int opcao = 0;
+        do {
+            System.out.println("===============================");
+            System.out.println("[1] ...");
+            System.out.println("[2] Trocar Usuario");
+            System.out.println("[3] Sair");
+            System.out.println("===============================");
+            System.out.print("Digite a opcao desejada: ");
+            opcao = in.nextInt();
+            in.nextLine();
+            switch (opcao) {
+                case 1:
+                    break;
+                case 2:
+                    menuUser();
+                case 3:
+                    break;
+            }
+        } while (opcao != 3);
+    }
+
 }
