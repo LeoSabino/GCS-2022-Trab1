@@ -6,6 +6,7 @@ public class Authorization {
 	private String doctorsName;
 	private String patientsName;
 	private String exam;
+	private String pendente;
 
 
 	public Authorization(int id, int dia, int mes, int ano, String doctorsName, String patientsName, String exam) {
@@ -16,6 +17,7 @@ public class Authorization {
 		this.doctorsName = doctorsName;
 		this.patientsName = patientsName;
 		this.exam = exam;
+		this.pendente= "Pendente";
 	}
 
 	public int getId() {
@@ -74,4 +76,11 @@ public class Authorization {
 		this.ano = ano;
 	}
 
+	public String getPendente() {
+		return pendente;
+	}
+
+	public void setPendente(String pendente) {
+		this.pendente = pendente;
+	}
 }
