@@ -219,6 +219,16 @@ public class Operador {
             else System.out.println("não tem autorizacao com esse id");
         }
     }
+
+    public void printaMedicos(){
+        for (Medico medicos:medico){
+            System.out.println("===================================");
+            System.out.println("Nome: " + medicos.getNome());
+            System.out.println("Tipo: " + medicos.getTipo());
+            System.out.println("ID: " + medicos.getId());
+            System.out.println("===================================");
+        }
+    }
     public double contaAutorizacoes() {
         return authorizations.size();
     }
