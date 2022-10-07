@@ -168,10 +168,22 @@ public class Sistema {
                     System.out.println("Digite a data de realização do exame: ");
                     System.out.println("Insira o ano");
                     int ano = in.nextInt();
+                    while(ano < 2010 || ano > 2025){
+                      System.out.println("Insira o ano");
+                      ano = in.nextInt();
+                    }
                     System.out.println("Insira o mes");
                     int mes = in.nextInt();
+                    while(mes<=0|| mes > 12){
+                      System.out.println("Insira o mes");
+                      mes = in.nextInt();
+                    }
                     System.out.println("Insira o dia");
                     int dia = in.nextInt();
+                    while(dia<=0 || dia >31){
+                      System.out.println("Insira o dia");
+                      dia = in.nextInt();
+                    }
                     System.out.println("Digite o id do exame realizado:");
                     operador.removeAutorizacao(in.nextInt(), ano, mes, dia);
                     break;

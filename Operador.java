@@ -4,9 +4,9 @@ import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
- 
+
 public class Operador {
-   
+
       private ArrayList<Usuario> usuario;
       private ArrayList<Medico> medico = new ArrayList<>();
       private ArrayList<Paciente> paciente = new ArrayList<>();
@@ -15,7 +15,7 @@ public class Operador {
       private ArrayList<Authorization> authorizations = new ArrayList<>();
       private Scanner in = new Scanner(System.in);
       private int id = 0;
-   
+
       public boolean salvaDadosArquivo(String nomeArquivo) {
           String linha = "";
         try {
@@ -32,15 +32,15 @@ public class Operador {
         }
         return true;
     }
-   
+
     public int contAdm(){
           return administrador.size();
     }
- 
+
     public Operador() {
           usuario = new ArrayList<Usuario>();
     }
- 
+
     public void cadastraUsuario(Usuario user){
           usuario.add(user);
           if (user.getTipo().equals("Medico")){
@@ -53,7 +53,7 @@ public class Operador {
               this.administrador.add((Administrador) user);
         }
     }
- 
+
     public Usuario escolheUser(String id){
           for (Usuario usuarios: usuario ){
               if (usuarios.getId().equals(id)){
@@ -62,13 +62,13 @@ public class Operador {
         }
         return null;
     }
- 
+
     public void listaUser() {
           for (Usuario usuarios : usuario) {
               System.out.println(usuarios.getId()+","+usuarios.getNome()+ ","+usuarios.getTipo());
         }
     }
- 
+
     public Paciente getPaciente(String id) {
           for (Paciente pacientes: paciente) {
               if (pacientes.getId().equals(id)) {
@@ -77,13 +77,13 @@ public class Operador {
         }
         return null;
     }
- 
+
     public void printaPaciente(){
           for (Paciente pacientes:paciente){
               System.out.println(pacientes.getId()+","+pacientes.getNome());
         }
     }
- 
+
     public void criaAutorizacao(Medico medico, Paciente paciente) {
           id++;
           System.out.println("=====================");
@@ -96,14 +96,14 @@ public class Operador {
         }
         System.out.println("insira o mes");
         int mes = in.nextInt();
-        while(mes<=0|| mes >12){
+        while(mes<=0|| mes > 12){
               System.out.println("Por favor insira um mes valido!");
             System.out.println("insira o mes");
             mes = in.nextInt();
         }
         System.out.println("insira o ano");
         int ano = in.nextInt();
-        while(ano<=2010|| ano >2025){
+        while(ano < 2010|| ano > 2025){
               System.out.println("Por favor insira um ano entre 2010-2025!");
             System.out.println("insira o ano");
             ano = in.nextInt();
@@ -160,7 +160,7 @@ public class Operador {
         Authorization authorization = new Authorization(id, dia, mes, ano, medico.getNome(), paciente.getNome(), exame);
         authorizations.add(authorization);
     }
- 
+
     public void printaAutorizacoes() {
           System.out.println("Escolha qual lista que voce deseja:");
         System.out.println("[1] Filtro Exames");
@@ -183,9 +183,9 @@ public class Operador {
             case 2:
                 System.out.println("Digite o paciente"); //falta colocar por data
                 String paciente = in.nextLine();
- 
+
                 dayOrderArray();
- 
+
                 for (Authorization authorization : authorizations) {
                       if (authorization.getPatientsName().equals(paciente)) {
                           System.out.println("Autorizacao: "+ authorization.getId() + ", " + authorization.getDia() + "-" +
@@ -199,7 +199,7 @@ public class Operador {
                 break;
         }
     }
- 
+
     public void printaAutoNome(String nome) {
           dayOrderArray();
           for (Authorization authorization : authorizations) {
@@ -214,12 +214,12 @@ public class Operador {
                         ", Medico: " + authorization.getDoctorsName() + "," + authorization.getExam());
                 }
             }
- 
+
     }
- 
+
     public void removeAutorizacao(int id, int ano, int mes, int dia){
           for (Authorization authorization:authorizations){
-   
+
               if (authorization.getId()==(id)){
                   int diasBrutos = ano*365+mes*30+dia;
                   if(diasBrutos-authorization.getDiasBrutos()>30) System.out.println("A data expirou");
@@ -228,7 +228,7 @@ public class Operador {
             else System.out.println("não tem autorizacao com esse id");
         }
     }
- 
+
     public void printaMedicos(){
           for (Medico medicos:medico){
               System.out.println("===================================");
@@ -241,9 +241,9 @@ public class Operador {
     public double contaAutorizacoes() {
           return authorizations.size();
     }
- 
+
     public double contaAutorizacoesFeitas() {
-   
+
           return authorizationsFeitas.size();
     }
 public int contMedico(){
@@ -252,16 +252,16 @@ public int contMedico(){
     public int contPaciente(){
           return paciente.size();
     }
- 
+
     public void dayOrderArray () {  
-                   
+
           int n = authorizations.size();  
            for(int i=0; i < n; i++){  
                    for(int j=1; j < (n-i); j++){  
                               if(authorizations.get(j-1).getDiasBrutos() > authorizations.get(j).getDiasBrutos()){    
                                    Collections.swap(authorizations, j-1, j);
                             }
-                         
+
                  }  
         }
     }
