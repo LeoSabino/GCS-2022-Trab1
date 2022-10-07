@@ -35,7 +35,7 @@ public class Sistema {
     }
 
     public void cadastra() {
-        String[] linhas = leArquivo("GSC.txt");
+        String[] linhas = leArquivo("GCS.txt");
         String id;
         String nome;
         String tipo;
@@ -144,8 +144,9 @@ public class Sistema {
         do {
             System.out.println("===============================");
             System.out.println("[1] Marcar exame como realizado");
-            System.out.println("[2] Trocar Usuario");
-            System.out.println("[3] Sair");
+            System.out.println("[2] Ver autorizacoes de exame");
+            System.out.println("[3] Trocar Usuario");
+            System.out.println("[4] Sair");
             System.out.println("===============================");
             System.out.print("Digite a opcao desejada: ");
             opcao = in.nextInt();
@@ -153,19 +154,21 @@ public class Sistema {
             switch (opcao) {
                 case 1:
                     operador.printaAutoNome(paciente.getNome());
-                    System.out.println("digite a data de realização do exame: ");
+                    System.out.println("Digite a data de realização do exame: ");
                     System.out.println("Insira o ano");
                     int ano = in.nextInt();
-                    System.out.println("insira o mes");
+                    System.out.println("Insira o mes");
                     int mes = in.nextInt();
-                    System.out.println("insira o dia");
+                    System.out.println("Insira o dia");
                     int dia = in.nextInt();
                     System.out.println("Digite o id do exame realizado:");
                     operador.removeAutorizacao(in.nextInt(), ano, mes, dia);
                     break;
                 case 2:
-                    menuUser();
+                    operador.printaAutoNome(paciente.getNome());
                 case 3:
+                    menuUser();
+                case 4:
                     break;
             }
         } while (opcao != 3);

@@ -119,7 +119,7 @@ public class Operador {
             default:
                 System.out.println("numero invalido");
         }
-        Authorization authorization = new Authorization(id, ano, mes, dia, medico.getNome(), paciente.getNome(), exame);
+        Authorization authorization = new Authorization(id, dia, mes, ano, medico.getNome(), paciente.getNome(), exame);
         authorizations.add(authorization);
     }
 
@@ -181,16 +181,16 @@ public class Operador {
         for (Authorization authorization:authorizations){
 
             if (authorization.getId()==(id)){
-                if (ano < authorization.getAno()|| ano > authorization.getAno()) {
-                    System.out.println("data invalida, tempo expirado");
+                if ((dia + authorization.getDia()) - authorization.getDia() > 30 ){
+                    System.out.println("se passaram mais 30 dias");
                     return;
                 }
-                else if (mes-authorization.getMes() > 1) {
+                if (mes != authorization.getMes()) {
                     System.out.println("ja passaram 30 dias");
                     return;
                 }
-                else if ((dia + authorization.getDia()) - authorization.getDia() > 30 ){
-                    System.out.println("se passaram mais 30 dias");
+                if (ano != authorization.getAno()) {
+                    System.out.println("data invalida, tempo expirado");
                     return;
                 }
                 authorization.setPendente("Exame Realizado");
