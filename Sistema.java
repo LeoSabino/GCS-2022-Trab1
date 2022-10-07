@@ -73,18 +73,23 @@ public class Sistema {
             switch (opcao) {
                 case 1:
                     System.out.println("Digite seu ID: ");
-                    usuario = operador.escolheUser(in.nextLine());
-                    if (usuario.getTipo().equals("Medico")) {
-                        Medico medico=(Medico) usuario;
-                        menuMedico(medico);
+                    try {
+                        usuario = operador.escolheUser(in.nextLine());
+                        if (usuario.getTipo().equals("Medico")) {
+                            Medico medico = (Medico) usuario;
+                            menuMedico(medico);
+                        }
+                        if (usuario.getTipo().equals("Paciente")) {
+                            Paciente paciente = (Paciente) usuario;
+                            menuPaciente(paciente);
+                        }
+                        if (usuario.getTipo().equals("Administrador")) {
+                            Administrador administrador = (Administrador) usuario;
+                            menuADM(administrador);
+                        }
                     }
-                    if (usuario.getTipo().equals("Paciente")) {
-                        Paciente paciente=(Paciente) usuario;
-                        menuPaciente(paciente);
-                    }
-                    if (usuario.getTipo().equals("Administrador")) {
-                        Administrador administrador=(Administrador) usuario;
-                        menuADM(administrador);
+                    catch (Exception e){
+                        System.out.println("usuario não existe");
                     }
                     break;
                 case 2:
@@ -148,8 +153,15 @@ public class Sistema {
             switch (opcao) {
                 case 1:
                     operador.printaAutoNome(paciente.getNome());
+                    System.out.println("digite a data de realização do exame: ");
+                    System.out.println("Insira o ano");
+                    int ano = in.nextInt();
+                    System.out.println("insira o mes");
+                    int mes = in.nextInt();
+                    System.out.println("insira o dia");
+                    int dia = in.nextInt();
                     System.out.println("Digite o id do exame realizado:");
-                    operador.removeAutorizacao(in.nextInt());
+                    operador.removeAutorizacao(in.nextInt(), ano, mes, dia);
                     break;
                 case 2:
                     menuUser();
