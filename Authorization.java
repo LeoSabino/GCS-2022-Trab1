@@ -89,4 +89,8 @@ public class Authorization {
 	public void setPendente(String pendente) {
 		this.pendente = pendente;
 	}
+
+	public int getDIasBrutos(){
+		return dia+mes*30+ano*365;
+	}
 }
