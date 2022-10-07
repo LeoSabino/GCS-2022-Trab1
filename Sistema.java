@@ -181,8 +181,9 @@ public class Sistema {
         do {
             System.out.println("===============================");
             System.out.println("[1] Criar novo Usuario");
-            System.out.println("[2] Trocar Usuario");
-            System.out.println("[3] Sair");
+            System.out.println("[2] Lista autorizacoes por Usuario");
+            System.out.println("[3] Troca Usuario");
+            System.out.println("[4] Sair");
             System.out.println("===============================");
             System.out.print("Digite a opcao desejada: ");
             opcao = in.nextInt();
@@ -207,13 +208,18 @@ public class Sistema {
                 operador.cadastraUsuario(adm);
                 }
                 break;
-                case 2:
+                case 2: 
+                System.out.println("Digite o nome do usuario que voce quer ver a lista");
+                String name= in.nextLine();
+                operador.printaAutoNome(name);
+                break;
+                case 3:
                     menuUser(); 
                     break;
-                case 3:
+                case 4:
                     break;
             }
-        } while (opcao != 3);
+        } while (opcao != 4);
     }
 
 }
