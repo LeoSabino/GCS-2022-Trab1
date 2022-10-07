@@ -31,7 +31,9 @@ public class Operador {
         }
         return true;
     }
-
+    public int contAdm(){
+        return administrador.size();
+    }
 
 
     public Operador() {
